@@ -3,6 +3,7 @@ using GenericsTestMaximum.FindMaxOutOfThreeFloat;
 using GenericsTestMaximum.FindMaxStringOutOfThreeString;
 using GenericsTestMaximum.FindGenericsMaxOutOfThree;
 using GenericsTestMaximum.FindGenericsClassMaxOutOfThree;
+using GenericsTestMaximum.FindMaxExtendMaxMethodSort;
 using System;
 
 namespace GenericsTestMaximum
@@ -17,7 +18,7 @@ namespace GenericsTestMaximum
             while (true)
             {
                 Console.WriteLine("Press 1 : to comapre 3 int\nPress 2 : to comparre 3 float\nPress 3 : to compare 3 string\nPress 4 : refactor-1 Generic method for find max" +
-                    "\nPress 5 : refactor-1 Generic class-constructor method for find max\nPress 8 : to exit");
+                    "\nPress 5 : refactor-1 Generic class-constructor method for find max\nPress 6 : Extend method sort to find max\nPress 8 : to exit");
                 Console.WriteLine("***************************************************************");
                 int options = Convert.ToInt32(Console.ReadLine());
                 switch (options)
@@ -82,6 +83,22 @@ namespace GenericsTestMaximum
                         Console.WriteLine("> refactor-1 Generic method, max int num is :--> " + refactorClassIntNum);
                         Console.WriteLine("> refactor-1 Generic method, max float num is :--> " + refactorClassFloatNum);
                         Console.WriteLine("> refactor-1 Generic method, max string is :--> " + refactorClassMaxStr);
+                        break;
+                    case 6:
+                        int[] intArray = new int[] { 21, 2, 19, 93, 88, 96, 60, 98, 78, 95, 5, 7 };
+                        double[] floatArray = new double[] { 2.0, 56, 93.5, 9.6, 120.0, 420, 98.3 };
+                        string[] strArray = new string[] { "string1", "apple", "house", "bridgelabz", "me", "hello" };
+
+                        ExtendMaxMethodSortToFindMax<int> intArrObj = new ExtendMaxMethodSortToFindMax<int>(intArray);
+                        ExtendMaxMethodSortToFindMax<double> floatArrOnj = new ExtendMaxMethodSortToFindMax<double>(floatArray);
+                        ExtendMaxMethodSortToFindMax<string> stringArrObj = new ExtendMaxMethodSortToFindMax<string>(strArray);
+                        int refactorClassIntNumArr = intArrObj.MaxValue(intArray);
+                        double refactorClassFloatNumArr = floatArrOnj.MaxValue(floatArray);
+                        string refactorClassMaxStrArr = stringArrObj.MaxValue(strArray);
+                        Console.WriteLine("> Generic class constructor method, max int num is :--> " + refactorClassIntNumArr);
+                        Console.WriteLine("> Generic class constructor method, max float num is :--> " + refactorClassFloatNumArr);
+                        Console.WriteLine("> Generic class constructor method, max string is :--> " + refactorClassMaxStrArr);
+
                         break;
                     case 8:
                         Environment.Exit(0);
