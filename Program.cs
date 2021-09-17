@@ -2,6 +2,7 @@
 using GenericsTestMaximum.FindMaxOutOfThreeFloat;
 using GenericsTestMaximum.FindMaxStringOutOfThreeString;
 using GenericsTestMaximum.FindGenericsMaxOutOfThree;
+using GenericsTestMaximum.FindGenericsClassMaxOutOfThree;
 using System;
 
 namespace GenericsTestMaximum
@@ -15,7 +16,8 @@ namespace GenericsTestMaximum
             Console.WriteLine("***************************************************************");
             while (true)
             {
-                Console.WriteLine("Press 1 : to comapre 3 int\nPress 2 : to comparre 3 float\nPress 3 : to compare 3 string\nPress 4 : refactor-1 Generic method for find max\nPress 8 : to exit");
+                Console.WriteLine("Press 1 : to comapre 3 int\nPress 2 : to comparre 3 float\nPress 3 : to compare 3 string\nPress 4 : refactor-1 Generic method for find max" +
+                    "\nPress 5 : refactor-1 Generic class-constructor method for find max\nPress 8 : to exit");
                 Console.WriteLine("***************************************************************");
                 int options = Convert.ToInt32(Console.ReadLine());
                 switch (options)
@@ -54,6 +56,32 @@ namespace GenericsTestMaximum
                         Console.WriteLine("> refactor-1 Generic method, max int num is :--> " + refactorIntNum);
                         Console.WriteLine("> refactor-1 Generic method, max float num is :--> " + refactorFloatNum);
                         Console.WriteLine("> refactor-1 Generic method, max string is :--> " + refactorMaxStr);
+                        break;
+                    case 5:
+                        Console.WriteLine("Enter three integer numbers ");
+                        int rfNum1 = Convert.ToInt32(Console.ReadLine());
+                        int rfNum2 = Convert.ToInt32(Console.ReadLine());
+                        int rfNum3 = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("***************************************************************");
+                        Console.WriteLine("Enter three float numbers ");
+                        double rfFloatNum1 = Convert.ToDouble(Console.ReadLine());
+                        double rfFloatNum2 = Convert.ToDouble(Console.ReadLine());
+                        double rfFloatNum3 = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine("***************************************************************");
+                        Console.WriteLine("Enter three string ");
+                        string rfString1 = Console.ReadLine();
+                        string rfString2 = Console.ReadLine();
+                        string rfString3 = Console.ReadLine();
+                        Console.WriteLine("***************************************************************");
+                        GenericsClassMaxOutOfThree <int> intObj = new GenericsClassMaxOutOfThree<int>(rfNum1, rfNum2, rfNum3);
+                        GenericsClassMaxOutOfThree<double> floatOnj = new GenericsClassMaxOutOfThree<double>(rfFloatNum1, rfFloatNum2, rfFloatNum3);
+                        GenericsClassMaxOutOfThree<string> stringObj = new GenericsClassMaxOutOfThree<string>(rfString1, rfString2, rfString3);
+                        int refactorClassIntNum = GenericsMaxOutOfThree.maxOutOfThree<int>(rfNum1, rfNum2, rfNum3);
+                        double refactorClassFloatNum = GenericsMaxOutOfThree.maxOutOfThree<double>(rfFloatNum1, rfFloatNum2, rfFloatNum3);
+                        string refactorClassMaxStr = GenericsMaxOutOfThree.maxOutOfThree<string>(rfString1, rfString2, rfString3);
+                        Console.WriteLine("> refactor-1 Generic method, max int num is :--> " + refactorClassIntNum);
+                        Console.WriteLine("> refactor-1 Generic method, max float num is :--> " + refactorClassFloatNum);
+                        Console.WriteLine("> refactor-1 Generic method, max string is :--> " + refactorClassMaxStr);
                         break;
                     case 8:
                         Environment.Exit(0);
