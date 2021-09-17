@@ -1,6 +1,7 @@
 ﻿using GenericsTestMaximum.FindMaxOutOfThree;
 using GenericsTestMaximum.FindMaxOutOfThreeFloat;
 using GenericsTestMaximum.FindMaxStringOutOfThreeString;
+using GenericsTestMaximum.FindGenericsMaxOutOfThree;
 using System;
 
 namespace GenericsTestMaximum
@@ -14,7 +15,7 @@ namespace GenericsTestMaximum
             Console.WriteLine("***************************************************************");
             while (true)
             {
-                Console.WriteLine("Press 1 : to comapre 3 int\nPress 2 : to comparre 3 float\nPress 3 : to compare 3 string\nPress 8 : to exit");
+                Console.WriteLine("Press 1 : to comapre 3 int\nPress 2 : to comparre 3 float\nPress 3 : to compare 3 string\nPress 4 : refactor-1 Generic method for find max\nPress 8 : to exit");
                 Console.WriteLine("***************************************************************");
                 int options = Convert.ToInt32(Console.ReadLine());
                 switch (options)
@@ -30,6 +31,29 @@ namespace GenericsTestMaximum
                     case 3:
                         string maxStr = MaxStringOutOfThreeString.maxStriing();
                         Console.WriteLine("max string out of 3 string is :--> " + maxStr);
+                        break;
+                    case 4:
+                        Console.WriteLine("Enter three integer numbers ");
+                        int num1 = Convert.ToInt32(Console.ReadLine());
+                        int num2 = Convert.ToInt32(Console.ReadLine());
+                        int num3 = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("***************************************************************");
+                        Console.WriteLine("Enter three float numbers ");
+                        double floatNum1 = Convert.ToDouble(Console.ReadLine());
+                        double floatNum2 = Convert.ToDouble(Console.ReadLine());
+                        double floatNum3 = Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine("***************************************************************");
+                        Console.WriteLine("Enter three string ");
+                        string string1 = Console.ReadLine();
+                        string string2 = Console.ReadLine();
+                        string string3 = Console.ReadLine();
+                        Console.WriteLine("***************************************************************");
+                        int refactorIntNum = GenericsMaxOutOfThree.maxOutOfThree<int>(num1, num2, num3);
+                        double refactorFloatNum = GenericsMaxOutOfThree.maxOutOfThree<double>(floatNum1, floatNum2, floatNum3);
+                        string refactorMaxStr = GenericsMaxOutOfThree.maxOutOfThree<string>(string1, string2, string3);
+                        Console.WriteLine("> refactor-1 Generic method, max int num is :--> " + refactorIntNum);
+                        Console.WriteLine("> refactor-1 Generic method, max float num is :--> " + refactorFloatNum);
+                        Console.WriteLine("> refactor-1 Generic method, max string is :--> " + refactorMaxStr);
                         break;
                     case 8:
                         Environment.Exit(0);
