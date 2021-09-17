@@ -1,4 +1,5 @@
 ﻿using GenericsTestMaximum.FindMaxOutOfThree;
+using GenericsTestMaximum.FindMaxOutOfThreeFloat;
 using System;
 
 namespace GenericsTestMaximum
@@ -12,15 +13,19 @@ namespace GenericsTestMaximum
             Console.WriteLine("***************************************************************");
             while (true)
             {
-                Console.WriteLine("Press 1 : to comapre 3 int\nPress 8 : to exit");
+                Console.WriteLine("Press 1 : to comapre 3 int\nPress 2 : to comparre 3 float\nPress 8 : to exit");
                 //Press 2 : to comparre 3 float\nPress 3 : to compare 3 string
                 Console.WriteLine("***************************************************************");
                 int options = Convert.ToInt32(Console.ReadLine());
                 switch (options)
                 {
                     case 1:
-                        int num = MaxOutOfThree.maxIntNumber();
-                        Console.WriteLine("max int out of 3 int is :--> " + num);
+                        int intNum = MaxOutOfThree.maxIntNumber();
+                        Console.WriteLine("max int out of 3 int is :--> " + intNum);
+                        break;
+                    case 2:
+                        double floatNum = MaxOutOfThreeFloat.maxFloatNumber();
+                        Console.WriteLine("max float num out of 3 float num is :--> " + floatNum);
                         break;
                     case 8:
                         Environment.Exit(0);
